@@ -10,3 +10,9 @@
 [submodule "src/tum_simulator"]
 	path = src/tum_simulator
 	url = ../../tum-vision/tum_simulator.git
+[submodule "src/TooN"]
+	path = src/TooN
+	url = git://github.com/edrosten/TooN.git
+[submodule "src/cmake_modules"]
+	path = src/cmake_modules
+	url = ../../ros/cmake_modules.git

@@ -20,7 +20,7 @@ tagline:     "Introduction to Robotics"   # shown in title bar beside title
 description: "Introduction to Robotics"   # shown under the title
 version: (I changed Hyde not to display this)
 url:     "http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/"               # Used by the Atom feed
-baseurl: ""                          # grep "site.baseurl" to see how it is used
+baseurl: "http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/"                          # grep "site.baseurl" to see how it is used
 github:
   repo: https://github.com/faustino-lukolo/Cpts483-Intro-To-Robotics # "GitHub project" link on sidebar
   user: qwertie                          # For comments system (not Hyde)

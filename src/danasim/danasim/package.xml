@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <name>danasim</name>
+  <version>0.0.0</version>
+  <description>The danasim package</description>
+  <maintainer email="faustino@todo.todo">faustino</maintainer>
+  <license>BSD</license>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>dana_ardrone</run_depend>
+  <run_depend>ardrone_python</run_depend>
+  <run_depend>dana_turtlebot</run_depend>
+  <run_depend>ardrone_tutorials</run_depend>
+ 
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+	<metapackage/>
+  </export>
+</package>

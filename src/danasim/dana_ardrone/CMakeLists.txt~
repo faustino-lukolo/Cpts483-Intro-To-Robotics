@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(dana_ardrone)
+
+## Find catkin macros and libraries
+## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
+## is used, also find other catkin packages
+find_package(catkin REQUIRED)
+catkin_package()
+
+# catkin_python_setup()
+
+## Mark executable scripts (Python etc.) for installation
+## in contrast to setup.py, you can choose the destination
+install(PROGRAMS src/takeoff_land.py
+				 src/drone_status.py
+				 src/drone_video_dispy.py
+				 #src/cirle_and_land.py
+				 #src/square_and_land.py
+				 src/takeoff_N_Land_V2.py
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

@@ -1,0 +1,20 @@
+On the TurtleBot:
+
+Bring up the robot
+$ roslaunch turtlebot_bringup minimal.launch
+
+Run the gmapping demo app:
+$ roslaunch turtlebot_navigation gmapping_demo.launch 
+
+
+On your Workstation:
+roslaunch turtlebot_rviz_launchers view_navigation.launch
+
+On the TurtleBot
+Drive the robot around by either:
+
+Using telop (keyboard, joystick, or other) from Teleoperation Tutorials
+If you are having troubles making a map check out this question.
+Save the map to file:
+
+rosrun map_server map_saver -f /Cpts483-Intro-To-Robotics/Maps/my_map

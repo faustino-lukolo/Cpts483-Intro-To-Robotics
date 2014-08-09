@@ -1,0 +1,33 @@
+TO RUN Example Maps
+roslaunch turtlebot_gazebo amcl_demo.launch
+
+
+Make a Map
+roslaunch turtlebot_gazebo turtlebot_playground.launch
+
+You can customize your simulated TurtleBot by setting TURTLEBOT_XXX environment variables; for example:
+
+
+$ export TURTLEBOT_BASE=create
+$ export TURTLEBOT_STACKS=circles
+$ export TURTLEBOT_3D_SENSOR=asus_xtion_pro
+$ roslaunch turtlebot_gazebo turtlebot_playground.launch
+
+To start map building, type:
+roslaunch turtlebot_gazebo gmapping_demo.launch
+
+
+Use RViz to visualize the map building process:
+$ roslaunch turtlebot_rviz_launchers view_navigation.launch
+
+Finally, save the map to disk:
+$ rosrun map_server map_saver -f /Cpts483-Intro-To-Robotics/Maps/<mymap name>
+
+
+Navigate the playground:
+To be sure that all will run as expected, kill all you launched in the previous section and repeat all steps except the map building. Instead, type:
+
+roslaunch turtlebot_gazebo amcl_demo.launch map_file:=<full path to your map file>
+
+Or if you prefer to use an already created map, just omit the map_file argument.
+Now you can send the robot anywhere in the playground with RViz, same way as explained on navigate a map tutorial.

@@ -1,0 +1,25 @@
+In-Browser AR.Drone Control through rosbridge
+The following assumes roscore and ardrone_autonomy (described above) are still running.
+
+Install rosbridge and mjpeg-server:
+sudo apt-get install ros-fuerte-rosbridge-suite
+sudo apt-get install ros-fuerte-mjpeg-server
+
+This will allow this web page to be served using roswww:
+cd ~/ros/drone_teleop
+mkdir www
+cd www
+
+wget https://dl.dropbox.com/u/14391589/tutorial/rosbridge_ardrone/drone_browser_teleop.html
+wget https://dl.dropbox.com/u/14391589/tutorial/rosbridge_ardrone/ros.js
+
+As an alternative, you can also clone this web interface and another interface with buttons from this github repository.
+
+Run rosbridge, mjpeg_server, and roswww:
+rosrun rosbridge_server rosbridge.py
+rosrun mjpeg_server mjpeg_server
+rosrun roswww webserver.py
+
+Navigate a websocket-enabled browser to http://localhost:8000/drone_teleop/drone_browser_teleop.html
+
+If successful, you browser should look like the following image, with a live video stream from the drone's front camera. You should now be able to takeoff, drive, and land the drone through the in-browser instructions.

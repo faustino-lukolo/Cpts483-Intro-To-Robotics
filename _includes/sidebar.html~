@@ -28,7 +28,7 @@
       {% endfor %}
 
       <a class="sidebar-nav-item" href="{{ site.github.repo }}">View on GitHub</a> 
-      
+      <a class="sidebar-nav-item" href="{{ site.baseurl }}/doc/code">Documentation comments</a>
     </nav>
 
     <p></p>

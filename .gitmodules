@@ -1,0 +1,12 @@
+[submodule "src/ardrone_autonomy"]
+	path = src/ardrone_autonomy
+	url = ../../AutonomyLab/ardrone_autonomy.git
+[submodule "src/navigation"]
+	path = src/navigation
+	url = ../../ros-planning/navigation.git
+[submodule "src/tum_ardrone"]
+	path = src/tum_ardrone
+	url = ../../tum-vision/tum_ardrone.git
+[submodule "src/tum_simulator"]
+	path = src/tum_simulator
+	url = ../../tum-vision/tum_simulator.git

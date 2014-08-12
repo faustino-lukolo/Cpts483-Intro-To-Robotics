@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      ROS Introduction &middot; Cpts 483
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Cpts 483
+        </a>
+      </h1>
+      <p class="lead">Intro to Robotics using ROS</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics/archive/v2.1.0.zip">Download</a>
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v2.1.0</span>
+    </nav>
+
+    <p>&copy; 2014. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">ROS Introduction</h1>
+  <span class="post-date">01 Aug 2014</span>
+  <p>What is ROS:</p>
+
+<p>Ros is an open-source meta operating system
+Current stable distributions of ROS: Hydro Medusa</p>
+
+<p>Key Features:</p>
+
+<ul>
+<li>Hardware abstraction and low level control</li>
+<li>Message passing between process</li>
+<li>OS independent: </li>
+<li>Ubuntu Linux (Native support)</li>
+<li>Windows, Mac OSX (Experimental)</li>
+<li>Programming language independence
+
+<ul>
+<li>C++</li>
+<li>Python 2 (Hydro) &amp; Python 3 (Indigo)</li>
+</ul></li>
+<li><p>Implementation of wide range of commonly used algorithm</p></li>
+<li><p>Standardized package management</p></li>
+<li><p>Catkin (Standard recommended)</p></li>
+<li><p>Rosbuild (retired / Not used in hydro or indigo)</p></li>
+<li><p>Useful set of shell commends and utililities</p></li>
+<li><p>Tab Completition!!!</p></li>
+</ul>
+
+<p>Distribution:</p>
+
+<p>ROS is structured as a peer-to-peer network of processes called Nodes Loosely coupled at runtime and
+can share messages at runtime using:</p>
+
+<ul>
+<li>Synchronous RPC communication </li>
+<li>ROS Services</li>
+<li>Asynchronous data streaming communication</li>
+<li>ROS Topics</li>
+<li>Store Data </li>
+<li>ROS parameter server</li>
+</ul>
+
+<p>Libraries Support:</p>
+
+<ul>
+<li><p>Main supported Client Libraries</p>
+
+<ul>
+<li>Python 2 &amp; 3</li>
+<li>C++</li>
+<li>Lisp</li>
+</ul></li>
+<li><p>Experimental</p>
+
+<ul>
+<li>Java (Supports android)</li>
+<li>Lua</li>
+<li>R</li>
+</ul></li>
+</ul>
+
+<p>Sensors IO:</p>
+
+<ul>
+<li>1D / 2D / and 3D range finders
+
+<ul>
+<li>e.g. Microsoft Kinect</li>
+</ul></li>
+<li>Cameras</li>
+<li>Mono and Stereo</li>
+<li>USB and Firewire</li>
+<li>Streaming video (gstreamer)</li>
+<li>Force / Torque / and Touch </li>
+<li>Motion Capture</li>
+<li>Pose estimation (gps and IMU)</li>
+<li>Audio and speech recognition</li>
+<li>RFID</li>
+<li>Sensor and Actuator interface
+
+<ul>
+<li>e.g.  Arduino, Lego NXT</li>
+</ul></li>
+<li>And more</li>
+</ul>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2014/08/06/archive/">
+            Archive
+            <small>06 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2014/08/01/Roslaunch/">
+            Roslaunch
+            <small>01 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2014/08/01/ROS-catkin-packages/">
+            Creating catkin packages
+            <small>01 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>

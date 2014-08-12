@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      ROS Packages &middot; Cpts 483
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Cpts 483
+        </a>
+      </h1>
+      <p class="lead">Intro to Robotics using ROS</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics/archive/v2.1.0.zip">Download</a>
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v2.1.0</span>
+    </nav>
+
+    <p>&copy; 2014. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">ROS Packages</h1>
+  <span class="post-date">01 Aug 2014</span>
+  <p><strong>ROS Packages</strong></p>
+
+<ul>
+<li>ROS packages must contain</li>
+<li>CMakeList.txt file</li>
+<li>package.xml</li>
+</ul>
+
+<p>There can be no more than 1 package per folder</p>
+
+<p><strong>Folder structure of a catkin_ws</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/catkin-folder-structure.jpg" alt="rostopic type"></p>
+
+<p><strong>dana_sim package</strong></p>
+
+<ul>
+<li><p>Create a package called dana_sim</p>
+
+<ul>
+<li>$ roscreate<em>pkg dana</em>sim roscpp rospy std_msgs</li>
+</ul></li>
+<li><p>First order dependency check</p>
+
+<ul>
+<li>$ rospack depends1 dana_sim</li>
+</ul></li>
+<li><p>Show all dependencies</p>
+
+<ul>
+<li>$ rospack depends dana_sim</li>
+</ul></li>
+</ul>
+
+<p><strong>Configuring catkin packages</strong></p>
+
+<ul>
+<li>You can edit package.xml to change the following information:</li>
+</ul>
+
+<p>![rostopic type](http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/config-packages.jpg</p>
+
+<p>CMakeList.txt</p>
+
+<ul>
+<li>CMake build system input for building software packages</li>
+<li>How to build and where to place binaries (code)</li>
+</ul>
+
+<p><strong>CMakeList.txt structure and Ordering</strong></p>
+
+<p>![rostopic type](http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/cmakelist.jpg </p>
+
+<p><strong>CMakeList.txt Break Down</strong></p>
+
+<ul>
+<li>CMake version</li>
+<li>Catkin requires version 2.8.3 or higher</li>
+</ul>
+
+<p>Package Name</p>
+
+<ul>
+<li>Name of package</li>
+<li>Must match name in package.xml</li>
+<li>Also name of package director </li>
+</ul>
+
+<p>find_package() </p>
+
+<ul>
+<li>specifies other CMake packages needed to build package</li>
+<li>At least one dependency on catkin</li>
+</ul>
+
+<p>e.g.</p>
+
+<ul>
+<li>find_package(catkin REQUIRED)</li>
+<li>Other wet (catkin) packages are also components 
+
+<ul>
+<li>find_package(catkin REQUIRED COMPONENTS rocpp rospy)</li>
+</ul></li>
+<li>Boost, OpenCV and PCL are not catkin components
+
+<ul>
+<li>find_package(Boost REQUIRED COMPONENTS signals thread)</li>
+</ul></li>
+</ul>
+
+<p><strong>Customizing CMakeList</strong></p>
+
+<p>catkin_package()</p>
+
+<ul>
+<li>CMake macro</li>
+<li>Required to specify catkin-specific info to the build system</li>
+<li>Generates pkg-config and CMake files</li>
+<li>Called before declaring targets</li>
+</ul>
+
+<p><strong>Args:</strong></p>
+
+<ul>
+<li>INCLUDE_DIRS: export include paths</li>
+<li>LIBRARIES: export libraries</li>
+<li>CATKIN_DEPENDS: other catkin packages</li>
+<li>DEPENDS: non-catkin CMake (system) dependencies</li>
+<li>CFG_EXTRAS: additional configurations options</li>
+</ul>
+
+<p>Include paths</p>
+
+<ul>
+<li>Include<em>directories(include ${Boost</em>INCLUDE<em>DIRS} ${catkin</em>INCLUDE_DIRS})</li>
+<li>Shared library targets</li>
+<li>add_library (dana src/dana.cpp)</li>
+<li>Execitable targets
+
+<ul>
+<li>add<em>executable( dana</em>node src/main.cpp src/some_functions.cpp)</li>
+</ul></li>
+<li>target<em>link</em>libraries
+
+<ul>
+<li>target<em>link</em>libraries(dana ${catkin_LIBRARIES})</li>
+<li>target<em>link</em>libraries(dana<em>node dummy ${Boost</em>LIBRARIES})</li>
+</ul></li>
+</ul>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2014/08/06/archive/">
+            Archive
+            <small>06 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2014/08/01/Roslaunch/">
+            Roslaunch
+            <small>01 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2014/08/01/ROS-catkin-packages/">
+            Creating catkin packages
+            <small>01 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>

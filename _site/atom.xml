@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Cpts 483</title>
+ <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/atom.xml" rel="self"/>
+ <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/"/>
+ <updated>2014-08-12T10:21:29-07:00</updated>
+ <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics</id>
+ <author>
+   <name>Faustino Lukolo</name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>Archive</title>
+   <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/06/archive/"/>
+   <updated>2014-08-06T00:00:00-07:00</updated>
+   <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/06/archive</id>
+   <content type="html">&lt;h2&gt;Blog Posts&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;06 Aug 2014 &amp;raquo; &lt;a href=&quot;/2014/08/06/archive/&quot;&gt; Archive &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;01 Aug 2014 &amp;raquo; &lt;a href=&quot;/2014/08/01/Roslaunch/&quot;&gt; Roslaunch &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;01 Aug 2014 &amp;raquo; &lt;a href=&quot;/2014/08/01/ROS-catkin-packages/&quot;&gt; Creating catkin packages &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;01 Aug 2014 &amp;raquo; &lt;a href=&quot;/2014/08/01/ROS-Structure/&quot;&gt; ROS Structure &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;01 Aug 2014 &amp;raquo; &lt;a href=&quot;/2014/08/01/ROS-Simulation/&quot;&gt; Supported Simulators &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;01 Aug 2014 &amp;raquo; &lt;a href=&quot;/2014/08/01/ROS-Packages/&quot;&gt; ROS Packages &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;01 Aug 2014 &amp;raquo; &lt;a href=&quot;/2014/08/01/ROS-Introduction/&quot;&gt; ROS Introduction &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;01 Aug 2014 &amp;raquo; &lt;a href=&quot;/2014/08/01/ROS-GUI/&quot;&gt; ROS GUI Toolkit &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;01 Aug 2014 &amp;raquo; &lt;a href=&quot;/2014/08/01/ROS-Filesystem/&quot;&gt; ROS Filesystem &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;01 Aug 2014 &amp;raquo; &lt;a href=&quot;/2014/08/01/ROS-Environment-Setup/&quot;&gt; ROS Environment Setup &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;01 Aug 2014 &amp;raquo; &lt;a href=&quot;/2014/08/01/ROS-Computation-Graph/&quot;&gt; ROS Computation Graph &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Roslaunch</title>
+   <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/Roslaunch/"/>
+   <updated>2014-08-01T00:00:00-07:00</updated>
+   <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/Roslaunch</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;roslaunch&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Advantages:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Run everything all at once&lt;/li&gt;
+&lt;li&gt;Reduce the number of open terminals&lt;/li&gt;
+&lt;li&gt;Easily launch multiple ROS Nodes&lt;/li&gt;
+&lt;li&gt;Allows the setting of parameters on Parameter Server&lt;/li&gt;
+&lt;li&gt;Automatically re-spawn process which have died&lt;/li&gt;
+&lt;li&gt;Can have one or more XML configuration files (.launch)&lt;/li&gt;
+&lt;li&gt;Contains information about which nodes to launch and which parameters to set&lt;/li&gt;
+&lt;li&gt;How nodes should be loaded&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Using Roslaunch&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Command :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ roslaunch [package_name] [filename.launch]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Creating a launch file:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Open text editor&lt;/li&gt;
+&lt;li&gt;Save the file in catkin workspace directory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;eg. name:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;mimic.launch&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Creating Roslaunch&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Open text editor and type the following&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/turtle-mimic.jpg&quot; alt=&quot;rostopic type&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Exploring mimic.launch&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Mimic node &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/mimic-node.jpg&quot; alt=&quot;rostopic type&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice that the mimic Node does not need to be in a namespace because its main purpose is to remap the keys from turtle1 to turtle2 Nodes which are in the turtlesim1 and turtlesim2 namespaces.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Launching .launch files&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Close all terminals (shutdown nodes and roscore)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ cd [catkin workspace directory]&lt;/li&gt;
+&lt;li&gt;$ roslaunch turtle_mimic.launch&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note that roscore is running because roslaunch command runs roscore at run time&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/mimic-turtle.jpg&quot; alt=&quot;rostopic type&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;The launch file contains definition for 2 turtlesim_nodes hence we have two window
+Notice also that the name is the same for both windows&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;rqt_graph representation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Check which topics are advertised / subscribed&lt;/li&gt;
+&lt;li&gt;Try to publish message over /turtlesim/turtle1/cmd_vel topic&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;e.g. &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rostopic pub -r /turtlesim1/turtle1/cmd&lt;em&gt;vel geometry&lt;/em&gt;msgs/Twist &amp;#39;[x, y, z]&amp;#39; &amp;#39;[x, y, z]&amp;#39;&lt;/li&gt;
+&lt;li&gt;Computation Graph Representation should look similar to this&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/graph-mimic.jpg&quot; alt=&quot;rostopic type&quot;&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Creating catkin packages</title>
+   <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-catkin-packages/"/>
+   <updated>2014-08-01T00:00:00-07:00</updated>
+   <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-catkin-packages</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;Overview:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;rosed:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Quickly see/edit a file of a given package rosed is part of the rosbash suite. &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ echo $EDITOR (default is vi, if blank)&lt;/li&gt;
+&lt;li&gt;$ export EDITOR=gedit&lt;/li&gt;
+&lt;li&gt;$ rosed &lt;pkg name&gt; &lt;file name&gt;
+
+&lt;ul&gt;
+&lt;li&gt;e.g. $ rosed turtlesim package.xml&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;*&lt;em&gt;Catkin Create: *&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/catkin-create.jpg&quot; alt=&quot;stage simulator&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Examining my_pkg:/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/examine-package.jpg&quot; alt=&quot;stage simulator&quot;&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rospack profile : displays all the directories that contain packages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Read more: &lt;em&gt;http://wiki.ros.org/rospack&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Building ROS packages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Before you can user your new packages you must first build your package.
+Change directorys to catkin workspace directory&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ cd ~/catkin_ws&lt;/li&gt;
+&lt;li&gt;$ catkin_make&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ROS Structure</title>
+   <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Structure/"/>
+   <updated>2014-08-01T00:00:00-07:00</updated>
+   <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Structure</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;Nodes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Process which perform specific computation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;e.g.:
+- Control robot wheel motors / servos etc.
+- Obtain data from sensor i.e. laser sensor, vision etc.
+- Acquire image and sound i.e. from camera / microphone
+- Perform localization (later topic) / compute path planning
+- Graphical representation of the overall system&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Exchange Data via Ros messages&lt;/li&gt;
+&lt;li&gt;Can run multiple Nodes via Nodelets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Advantages to Nodelets (multiple Nodes):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Provide a way to run multiple nodes (algorithms) on:&lt;/li&gt;
+&lt;li&gt;Single machine&lt;/li&gt;
+&lt;li&gt;Single process&lt;/li&gt;
+&lt;li&gt;Reduce cost interprocess message passing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note! Master is the core / main node for ROS, called roscore!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ROS Master (roscore)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Akin to Internet DNS (domain name server)&lt;/li&gt;
+&lt;li&gt;Core node of ROS &lt;/li&gt;
+&lt;li&gt;Provides name registration and lookup to the rest of the computation computation graph(the visual -  representation of the system)&lt;/li&gt;
+&lt;li&gt;Every node registers with Master upon startup / at runtime
+
+&lt;ul&gt;
+&lt;li&gt;Fetch registration information (subscribe or publish to a given topic) &lt;/li&gt;
+&lt;li&gt;Establish direct connections as appropriate&lt;/li&gt;
+&lt;li&gt;Make callbacks to nodes when registration information changes (i.e. Event handler)&lt;/li&gt;
+&lt;li&gt;Allows nodes to dynamically create connections as necessary (i.e. new nodes are run)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ROS Parameter Server&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Akin to dictionary in c# or python&lt;/li&gt;
+&lt;li&gt;Shared&lt;/li&gt;
+&lt;li&gt;Accessible via network APIs&lt;/li&gt;
+&lt;li&gt;Belongs to ROS Master&lt;/li&gt;
+&lt;li&gt;Storage space for parameters&lt;/li&gt;
+&lt;li&gt;Accessed by Nodes at runtime&lt;/li&gt;
+&lt;li&gt;Not designed for high performance / Better suited for configuration parameters (arguments / data passed to functions)&lt;/li&gt;
+&lt;li&gt;Follows ROS naming (namespaces) convention to Avoid conflicts&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/param-server.jpg&quot; alt=&quot;ROS Parameter Server Diagram&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Parameter Server Example:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Commands : list and get&lt;/p&gt;
+
+&lt;p&gt;Open a terminal window and run:
+- $ roscore&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;In a new terminal windows / tab&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;List parameters&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rosparam list&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Get distribution /  version &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rosparam get /rosdistro&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ROS Messages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Message
+- A data structure which consists of typed fields&lt;/p&gt;
+
+&lt;p&gt;Data types Supported:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Primitive types:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Int{8, 16, 32, 64} i.e. short uint int long unsigned long &lt;/li&gt;
+&lt;li&gt;Float {32, 64}&lt;/li&gt;
+&lt;li&gt;String&lt;/li&gt;
+&lt;li&gt;Time&lt;/li&gt;
+&lt;li&gt;Duration (seconds)&lt;/li&gt;
+&lt;li&gt;Array [ ]&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Nodes communicate by exchanging Messages. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Messages are routed via transport system with publish / subscribe semantics&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Non-blocking when used with topic *.msg (n:n)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;You can have as many ROS topics publishing and subscribing&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Blocking when used with service *.serv (1:1 request + respond)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Services must only provide and request the same type&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ROS Messages Commands&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rosmsg list : lists the current messages&lt;/li&gt;
+&lt;li&gt;$ rosmsg show &lt;message name&gt;/Type : Show the contents of message i.e. Message type :&lt;/li&gt;
+&lt;li&gt;e.g.
+
+&lt;ul&gt;
+&lt;li&gt;$ rosmsg show geometry_msgs/Vector3&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/msg-show-vector3.jpg&quot; alt=&quot;msg show vector3&quot;&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rosmsg show geometry_msgs/Twist&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/msg-show-vector3.jpg&quot; alt=&quot;msg show vector3&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ROS Topics&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Nodes send messages by publishing it to a given ROS Topic&lt;/li&gt;
+&lt;li&gt;Topic type must match the message type
+
+&lt;ul&gt;
+&lt;li&gt;Defined by the message type published to it&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;If a Node needs a certain type of data it must subscribe to the appropriate Topic&lt;/li&gt;
+&lt;li&gt;Multiple Nodes can publish and subscribe to the same topic&lt;/li&gt;
+&lt;li&gt;A single Node may publish / subscribe to multiple Topics&lt;/li&gt;
+&lt;li&gt;Publishers and Subscribers are unaware of each other&amp;#39;s existence WHY?&lt;/li&gt;
+&lt;li&gt;Publish / Subscribe model flexible paradigm i.e. many-to-many one way transport&lt;/li&gt;
+&lt;li&gt;There is no order of execution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/ros-topicdiagram.jpg&quot; alt=&quot;ROS topics diagram&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ROS Services&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ROS services implement the request / reply functionality&lt;/li&gt;
+&lt;li&gt;Pair of message struct : {reply, request}&lt;/li&gt;
+&lt;li&gt;Node provider (Server) offer service under specific names&lt;/li&gt;
+&lt;li&gt;A client node uses the service by sending the request message and awaits a reply
+
+&lt;ul&gt;
+&lt;li&gt;e.g. Remote procedure call&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/ros-topicdiagram.jpg&quot; alt=&quot;ROS Services Diagram&quot;&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The Listener Node request service from ROS Master&lt;/li&gt;
+&lt;li&gt;Talker Node publishes service to ROS master&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ROS Services Commands&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To View details of ROS services
+- $ rossrv list : lists all available services 
+- $ rossrv show &lt;Node_name&gt;/&lt;service name or double tab to list all avaialble&gt;
+e.g.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/service-cmds.jpg&quot; alt=&quot;ROS Services Commands&quot;&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Supported Simulators</title>
+   <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Simulation/"/>
+   <updated>2014-08-01T00:00:00-07:00</updated>
+   <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Simulation</id>
+   <content type="html">&lt;p&gt;Stage:&lt;/p&gt;
+
+&lt;p&gt;Stage is an Open-Source 2D simulator for multiple (large scale) mobile robots.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Models:
+
+- Sensors (e.g. Laser, Sonar…)
+- Actuators (e.g. gripper)
+- Simple objects for manipulation
+- No physics model
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/stage-sim.jpg&quot; alt=&quot;stage simulator&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Webots:&lt;/p&gt;
+
+&lt;p&gt;Webots is a development environment used to program and simulate robots&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Advantages:
+
+- Complex and realistic 3D simulation of physics / dynamics
+- Vast Collection of robots, sensors, and models
+- Vast Library of indoor and outdoor objects
+
+Disadvantage:
+
+- Cross-platform, but propitiatory (and very expensive)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/webots-sim.jpg&quot; alt=&quot;stage simulator&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Gazebo:&lt;/p&gt;
+
+&lt;p&gt;Gazebo offers the ability to accurately and efficiently simulate populations of robots in complex indoor and outdoor environments. &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Advantages:
+
+- Realistic simulation of
+- Rigid body physics / dynamics (ODE / Bullet)
+- Models for complex robots, actuators and sensors
+- Official simulator of DARPA Robotics Challenge
+- Open-Source and free to the public!!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/gazebo-sim.jpg&quot; alt=&quot;stage simulator&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;ROS Installation:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Ubuntu (Recommended):
+    - Follow the ros hydro installation in the ROS wiki
+    - http://wiki.ros.org/hydro/Installation/Ubuntu
+
+Windows Users (Virtual Machine)
+    - Download ROS Hydro Medusa Virtualbox ova image
+    - http://nootrix.com/2014/04/virtualized-ros-hydro/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>ROS Packages</title>
+   <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Packages/"/>
+   <updated>2014-08-01T00:00:00-07:00</updated>
+   <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Packages</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;ROS Packages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ROS packages must contain&lt;/li&gt;
+&lt;li&gt;CMakeList.txt file&lt;/li&gt;
+&lt;li&gt;package.xml&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There can be no more than 1 package per folder&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Folder structure of a catkin_ws&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/catkin-folder-structure.jpg&quot; alt=&quot;rostopic type&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;dana_sim package&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create a package called dana_sim&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ roscreate&lt;em&gt;pkg dana&lt;/em&gt;sim roscpp rospy std_msgs&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;First order dependency check&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rospack depends1 dana_sim&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Show all dependencies&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rospack depends dana_sim&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Configuring catkin packages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You can edit package.xml to change the following information:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;![rostopic type](http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/config-packages.jpg&lt;/p&gt;
+
+&lt;p&gt;CMakeList.txt&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CMake build system input for building software packages&lt;/li&gt;
+&lt;li&gt;How to build and where to place binaries (code)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;CMakeList.txt structure and Ordering&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;![rostopic type](http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/cmakelist.jpg &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CMakeList.txt Break Down&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CMake version&lt;/li&gt;
+&lt;li&gt;Catkin requires version 2.8.3 or higher&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Package Name&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Name of package&lt;/li&gt;
+&lt;li&gt;Must match name in package.xml&lt;/li&gt;
+&lt;li&gt;Also name of package director &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;find_package() &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;specifies other CMake packages needed to build package&lt;/li&gt;
+&lt;li&gt;At least one dependency on catkin&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;e.g.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;find_package(catkin REQUIRED)&lt;/li&gt;
+&lt;li&gt;Other wet (catkin) packages are also components 
+
+&lt;ul&gt;
+&lt;li&gt;find_package(catkin REQUIRED COMPONENTS rocpp rospy)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Boost, OpenCV and PCL are not catkin components
+
+&lt;ul&gt;
+&lt;li&gt;find_package(Boost REQUIRED COMPONENTS signals thread)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Customizing CMakeList&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;catkin_package()&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CMake macro&lt;/li&gt;
+&lt;li&gt;Required to specify catkin-specific info to the build system&lt;/li&gt;
+&lt;li&gt;Generates pkg-config and CMake files&lt;/li&gt;
+&lt;li&gt;Called before declaring targets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Args:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;INCLUDE_DIRS: export include paths&lt;/li&gt;
+&lt;li&gt;LIBRARIES: export libraries&lt;/li&gt;
+&lt;li&gt;CATKIN_DEPENDS: other catkin packages&lt;/li&gt;
+&lt;li&gt;DEPENDS: non-catkin CMake (system) dependencies&lt;/li&gt;
+&lt;li&gt;CFG_EXTRAS: additional configurations options&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Include paths&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Include&lt;em&gt;directories(include ${Boost&lt;/em&gt;INCLUDE&lt;em&gt;DIRS} ${catkin&lt;/em&gt;INCLUDE_DIRS})&lt;/li&gt;
+&lt;li&gt;Shared library targets&lt;/li&gt;
+&lt;li&gt;add_library (dana src/dana.cpp)&lt;/li&gt;
+&lt;li&gt;Execitable targets
+
+&lt;ul&gt;
+&lt;li&gt;add&lt;em&gt;executable( dana&lt;/em&gt;node src/main.cpp src/some_functions.cpp)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;target&lt;em&gt;link&lt;/em&gt;libraries
+
+&lt;ul&gt;
+&lt;li&gt;target&lt;em&gt;link&lt;/em&gt;libraries(dana ${catkin_LIBRARIES})&lt;/li&gt;
+&lt;li&gt;target&lt;em&gt;link&lt;/em&gt;libraries(dana&lt;em&gt;node dummy ${Boost&lt;/em&gt;LIBRARIES})&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ROS Introduction</title>
+   <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Introduction/"/>
+   <updated>2014-08-01T00:00:00-07:00</updated>
+   <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Introduction</id>
+   <content type="html">&lt;p&gt;What is ROS:&lt;/p&gt;
+
+&lt;p&gt;Ros is an open-source meta operating system
+Current stable distributions of ROS: Hydro Medusa&lt;/p&gt;
+
+&lt;p&gt;Key Features:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hardware abstraction and low level control&lt;/li&gt;
+&lt;li&gt;Message passing between process&lt;/li&gt;
+&lt;li&gt;OS independent: &lt;/li&gt;
+&lt;li&gt;Ubuntu Linux (Native support)&lt;/li&gt;
+&lt;li&gt;Windows, Mac OSX (Experimental)&lt;/li&gt;
+&lt;li&gt;Programming language independence
+
+&lt;ul&gt;
+&lt;li&gt;C++&lt;/li&gt;
+&lt;li&gt;Python 2 (Hydro) &amp;amp; Python 3 (Indigo)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Implementation of wide range of commonly used algorithm&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standardized package management&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Catkin (Standard recommended)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Rosbuild (retired / Not used in hydro or indigo)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Useful set of shell commends and utililities&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Tab Completition!!!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Distribution:&lt;/p&gt;
+
+&lt;p&gt;ROS is structured as a peer-to-peer network of processes called Nodes Loosely coupled at runtime and
+can share messages at runtime using:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Synchronous RPC communication &lt;/li&gt;
+&lt;li&gt;ROS Services&lt;/li&gt;
+&lt;li&gt;Asynchronous data streaming communication&lt;/li&gt;
+&lt;li&gt;ROS Topics&lt;/li&gt;
+&lt;li&gt;Store Data &lt;/li&gt;
+&lt;li&gt;ROS parameter server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Libraries Support:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Main supported Client Libraries&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Python 2 &amp;amp; 3&lt;/li&gt;
+&lt;li&gt;C++&lt;/li&gt;
+&lt;li&gt;Lisp&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Experimental&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Java (Supports android)&lt;/li&gt;
+&lt;li&gt;Lua&lt;/li&gt;
+&lt;li&gt;R&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sensors IO:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1D / 2D / and 3D range finders
+
+&lt;ul&gt;
+&lt;li&gt;e.g. Microsoft Kinect&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Cameras&lt;/li&gt;
+&lt;li&gt;Mono and Stereo&lt;/li&gt;
+&lt;li&gt;USB and Firewire&lt;/li&gt;
+&lt;li&gt;Streaming video (gstreamer)&lt;/li&gt;
+&lt;li&gt;Force / Torque / and Touch &lt;/li&gt;
+&lt;li&gt;Motion Capture&lt;/li&gt;
+&lt;li&gt;Pose estimation (gps and IMU)&lt;/li&gt;
+&lt;li&gt;Audio and speech recognition&lt;/li&gt;
+&lt;li&gt;RFID&lt;/li&gt;
+&lt;li&gt;Sensor and Actuator interface
+
+&lt;ul&gt;
+&lt;li&gt;e.g.  Arduino, Lego NXT&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;And more&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ROS GUI Toolkit</title>
+   <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-GUI/"/>
+   <updated>2014-08-01T00:00:00-07:00</updated>
+   <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-GUI</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;ROS Gui toolkit&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;rqt&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;QT based framework for ROS&lt;/li&gt;
+&lt;li&gt;Dock multiple widgets on a single window&lt;/li&gt;
+&lt;li&gt;Various GUI tools implemented as plugins:&lt;/li&gt;
+&lt;li&gt;Node graph (Introspection detailed view of nodes)&lt;/li&gt;
+&lt;li&gt;Logging (ROS bags, Console)&lt;/li&gt;
+&lt;li&gt;Services&lt;/li&gt;
+&lt;li&gt;Topics&lt;/li&gt;
+&lt;li&gt;Visualization (e.g. Plot)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ROS Gui&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/ros-gui.jpg&quot; alt=&quot;ros gui&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Plotting published Data&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rqt-graph
+
+&lt;ul&gt;
+&lt;li&gt;Displays scrolling time plot of data published  to topics&lt;/li&gt;
+&lt;li&gt;Command : $ rosrun rqt-plot rqt-plot
+e.g. Plot turtle1 pose&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;$ roscore : if not running
+$ rosrun turtlesim turtlesim_node
+$ rostopic list : List the topics running 
+$ rostopic type /turtle1/pose | rosmsg show
+- Displays the data type of published messages on /turtle1/pose topic&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;List Message types publish on /turtle1/pose topic&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rostopic-type.jpg&quot; alt=&quot;rostopic type&quot;&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rosrun rqt&lt;em&gt;plot rqt&lt;/em&gt;plot [topic]/[attribute]/[fields]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;e.g. &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rosrun rqt&lt;em&gt;plot rqt&lt;/em&gt;plot /turtle1/cmd_vel/linear/x&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Plot /turtle1/pose published messages:&lt;/strong&gt; &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rosrun rqt&lt;em&gt;plot rqt&lt;/em&gt;plot /turtle1/pose/x /turtle1/pose/y /turtle1/pose/z&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Plotting /turtle1/cmd_vel Linear x, y, z and angular z&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rqt-cmd_vel.jpg&quot; alt=&quot;rostopic type&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see the graph is a very accurate representation of the data published to cmd_vel topic using the command:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rostopic pub -r 10 /turtle1/cmd&lt;em&gt;vel geometry&lt;/em&gt;msgs/Twist &amp;#39;[2.0, 0.0, 0.0]&amp;#39; &amp;#39;[0.0, 0.0, 1.8]&amp;#39;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;*&lt;em&gt;rqt-graph *&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Reduce complexity of ROS Computation Graph&lt;/li&gt;
+&lt;li&gt;Keeps track of all nodes publishing/ subscribing&lt;/li&gt;
+&lt;li&gt;Dynamic graph of whats going on in the system&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Load RQT GUI:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ roscore&lt;/li&gt;
+&lt;li&gt;$ rosrun turtlesim    turtlesim_node&lt;/li&gt;
+&lt;li&gt;$ rosrun turtlesim turtle&lt;em&gt;teleop&lt;/em&gt;key&lt;/li&gt;
+&lt;li&gt;$ rosrun rqt&lt;em&gt;graph rqt&lt;/em&gt;graph&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;rqt_graph Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Publishers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/teleop_turtle Node publishing &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Message Type:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;geometry_msgs/Twist &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Topics publishing/subscribed&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;over /turtle1/cmd_vel topic&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Subscribers&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/turtlesim node subscribe to /turtle1/cmd_vel Topic&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rqt-turtle-cmd_vel.jpg&quot; alt=&quot;rostopic type&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;More Complex rqt_graph Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/complex-graph.jpg&quot; alt=&quot;Complex Graph&quot;&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ROS Filesystem</title>
+   <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Filesystem/"/>
+   <updated>2014-08-01T00:00:00-07:00</updated>
+   <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Filesystem</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;ROS Packages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Lowest level of ROS software organization&lt;/li&gt;
+&lt;li&gt;Single functionality 
+
+&lt;ul&gt;
+&lt;li&gt;(e.g. acquisition and publication of laser data messages)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Only one package per folder per workspace&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Types of packages:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rosbuild packages (also known as dry packages)&lt;/li&gt;
+&lt;li&gt;Catkin Packages (recommended aka wet packages)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Rosbuild Packages (dry! deprecated)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Maifest.xml:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Information about the package
+
+&lt;ul&gt;
+&lt;li&gt;e.g. Author, License etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Defines the dependencies on other packages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Makefile:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Make build specifications&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;CMakeLists.txt:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CMake build specifications&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Catkin Packages (wet):&lt;/p&gt;
+
+&lt;p&gt;Package.xml:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Information about the package
+
+&lt;ul&gt;
+&lt;li&gt;e.g. Author, License etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;CMakeLists.txt:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Contains CMake build specifications &lt;/li&gt;
+&lt;li&gt;Uses catkin macros&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note!!! Catkin packages cannot depend on Rosbuild packages&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Stacks – rosbuild (deprecated!):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Group packages to provide a more abstract functionality&lt;/li&gt;
+&lt;li&gt;Packages within stack folder are consider part of the stack&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Stack.xml:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Metadata and declared dependencies on other stacks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Metapackages – catkin (recommended):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Grouping packages as a single logical package&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;package.xml:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Includes meta data&lt;/li&gt;
+&lt;li&gt;Can only have dependencies on packages grouped by the metapackage&lt;/li&gt;
+&lt;li&gt;Packages which are not in the metapackage can not depend on the meta package &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A typical catkin package:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;my_pkg/&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CmakeLists.txt: CMake build settings for my_pkg&lt;/li&gt;
+&lt;li&gt;manifest.xml:   Metadata and dependencies required by my_pkg/&lt;/li&gt;
+&lt;li&gt;mainpage.dox:   Doxygen info of package my_pkg&lt;/li&gt;
+&lt;li&gt;Include/my_pkg: C++ header files&lt;/li&gt;
+&lt;li&gt;Src/:           source code directory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ROS Commandline Tools:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosbash.jpg&quot; alt=&quot;stage simulator&quot;&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ROS Environment Setup</title>
+   <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Environment-Setup/"/>
+   <updated>2014-08-01T00:00:00-07:00</updated>
+   <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Environment-Setup</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;Environment Setup:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create a new directory e.g. mkdir workspacename/src&lt;/li&gt;
+&lt;li&gt;Navigate to /src directory of your workspace&lt;/li&gt;
+&lt;li&gt;/src is the directory for all your packages i.e. ROS Package Path&lt;/li&gt;
+&lt;li&gt;Create a link to point to /src directory i.e. catkin&lt;em&gt;init&lt;/em&gt;workspace&lt;/li&gt;
+&lt;li&gt;Finally build the workspaces&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/environment-setup.jpg&quot; alt=&quot;stage simulator&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Note! 
+This is only done once per workspace. You can have multiple workspace but can only source 
+One workspace at a time. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Source devel/setup.bash:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you have build your catkin space you can begin using this workspace. First Source your devel folder this allows the terminal to point to your ROS directory when running roscd.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/ws-setup.jpg&quot; alt=&quot;stage simulator&quot;&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ROS Computation Graph</title>
+   <link href="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Computation-Graph/"/>
+   <updated>2014-08-01T00:00:00-07:00</updated>
+   <id>http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/2014/08/01/ROS-Computation-Graph</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;More Graph Concepts&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rosout – similar to stdout / stderr (standard output )&lt;/li&gt;
+&lt;li&gt;Roscore – Master + rosout + parameter server (rosparam)
+
+&lt;ul&gt;
+&lt;li&gt;ROS Master must be started before any other node. &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Navigating ROS File System&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Filesystem tools
+
+&lt;ul&gt;
+&lt;li&gt;Eliminates need to use standard bash commands such as cd and ls to navigate package directories.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/service-cmds.jpg&quot; alt=&quot;ROS Bash command list&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;$ rospack - Command&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Get information about packages&lt;/li&gt;
+&lt;li&gt;list packages currently available&lt;/li&gt;
+&lt;li&gt;find the path of packages&lt;/li&gt;
+&lt;li&gt;lists dependencies of packages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;and more. . .&lt;/p&gt;
+
+&lt;p&gt;e.g. 
+- $ rospack find turtlesim
+- $ /opt/ros/hydro/share/turtlesim&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;roscd - Command&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Usage: roscd [package name[/subdir]]&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Change to package directory&lt;/li&gt;
+&lt;li&gt;Packages must be within directories listed in ROS PACKAGE PATH&lt;/li&gt;
+&lt;li&gt;Executing roscd without specifying a package changes directory to ROS WORKSPACE/devel (if set)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;rosls - Command&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Usage: rosls [package name[/subdir]]&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Allow listing the contents of a package by name rather than by absolute path&lt;/li&gt;
+&lt;li&gt;Packages must be within directories listed in ROS PACKAGE PATH&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;e.g.
+&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/service-cmds.jpg&quot; alt=&quot;rosls command&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Understanding ROS Nodes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;$ rosnode&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A command line tool for printing information about ROS Nodes currently running&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;$ rosnode list&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Lists the active Nodes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;$ rosnode info /&lt;node name&gt;&lt;/p&gt;
+
+&lt;p&gt;e.g. 
+$ roscore
+$ rosnode list - will display a node /rosout
+$ rosnode info /rosout - Prints information about node /rosout&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Executing a ROS Node&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;$ rosrun&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Allows the use of package name to directly run a node (executable program) within the package&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Usage : rosrun [package&lt;em&gt;name] [node&lt;/em&gt;name]
+e.g. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;$ rosrun turtlesim turtlesim_node&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosrun.jpg&quot; alt=&quot;rosrun command&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Understanding rosnode&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosnode.jpg&quot; alt=&quot;rosnode command&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Understanding Topics&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rostopic-bash.jpg&quot; alt=&quot;rostopic command&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Understanding rosmsg&lt;/strong&gt;
+&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosmsg.jpg&quot; alt=&quot;rosmsg command&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Understanding rossrv&lt;/strong&gt;
+&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosserv.jpg&quot; alt=&quot;rosserv command&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Calling ROS services&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;With service currently active 
+
+&lt;ul&gt;
+&lt;li&gt;Use $ rosservice list : to view active services&lt;/li&gt;
+&lt;li&gt;Use $ rosservice call to call a service&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosservice-call.jpg&quot; alt=&quot;rosservice command&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;*&lt;em&gt;e.g. *&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ rosservice call /spawn 1.0 2.0 0.0 turtle2&lt;/li&gt;
+&lt;li&gt;Now try to spawn a turtle in a different location.&lt;/li&gt;
+&lt;li&gt;Experiment will all the rosservice calls&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ROS parameters&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;ROS parameter server:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Shared Multi-variate dictionary&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Accessible via network APIs&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Nodes use parameter server to store and retrieve parameters at run time&lt;/li&gt;
+&lt;li&gt;Not designed for high performance&lt;/li&gt;
+&lt;li&gt;Globally view / runs inside ROS Master via XMLRPC&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;rosparam&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A command line tool for getting, setting and deleting parameters from ROS parameter server&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosparam.jpg&quot; alt=&quot;rosparam command&quot;&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Using rosparm&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rosparam list: list parameters currently stored&lt;/li&gt;
+&lt;li&gt;rosparam get [param name]: get parameter value&lt;/li&gt;
+&lt;li&gt;rosparam set [param name]: set parameter value&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosparam-list.jpg&quot; alt=&quot;rosparam list command&quot;&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

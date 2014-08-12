@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      ROS GUI Toolkit &middot; Cpts 483
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Cpts 483
+        </a>
+      </h1>
+      <p class="lead">Intro to Robotics using ROS</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics/archive/v2.1.0.zip">Download</a>
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v2.1.0</span>
+    </nav>
+
+    <p>&copy; 2014. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">ROS GUI Toolkit</h1>
+  <span class="post-date">01 Aug 2014</span>
+  <p><strong>ROS Gui toolkit</strong></p>
+
+<ul>
+<li><strong>rqt</strong>
+
+<ul>
+<li>QT based framework for ROS</li>
+<li>Dock multiple widgets on a single window</li>
+<li>Various GUI tools implemented as plugins:</li>
+<li>Node graph (Introspection detailed view of nodes)</li>
+<li>Logging (ROS bags, Console)</li>
+<li>Services</li>
+<li>Topics</li>
+<li>Visualization (e.g. Plot)</li>
+</ul></li>
+</ul>
+
+<p><strong>ROS Gui</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/ros-gui.jpg" alt="ros gui"></p>
+
+<p><strong>Plotting published Data</strong></p>
+
+<ul>
+<li>rqt-graph
+
+<ul>
+<li>Displays scrolling time plot of data published  to topics</li>
+<li>Command : $ rosrun rqt-plot rqt-plot
+e.g. Plot turtle1 pose</li>
+</ul></li>
+</ul>
+
+<p>$ roscore : if not running
+$ rosrun turtlesim turtlesim_node
+$ rostopic list : List the topics running 
+$ rostopic type /turtle1/pose | rosmsg show
+- Displays the data type of published messages on /turtle1/pose topic</p>
+
+<p><strong>List Message types publish on /turtle1/pose topic</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rostopic-type.jpg" alt="rostopic type"></p>
+
+<ul>
+<li>$ rosrun rqt<em>plot rqt</em>plot [topic]/[attribute]/[fields]</li>
+</ul>
+
+<p>e.g. </p>
+
+<ul>
+<li>$ rosrun rqt<em>plot rqt</em>plot /turtle1/cmd_vel/linear/x</li>
+</ul>
+
+<p><strong>Plot /turtle1/pose published messages:</strong> </p>
+
+<ul>
+<li>rosrun rqt<em>plot rqt</em>plot /turtle1/pose/x /turtle1/pose/y /turtle1/pose/z</li>
+</ul>
+
+<p><strong>Plotting /turtle1/cmd_vel Linear x, y, z and angular z</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rqt-cmd_vel.jpg" alt="rostopic type"></p>
+
+<p>As you can see the graph is a very accurate representation of the data published to cmd_vel topic using the command:</p>
+
+<ul>
+<li>$ rostopic pub -r 10 /turtle1/cmd<em>vel geometry</em>msgs/Twist &#39;[2.0, 0.0, 0.0]&#39; &#39;[0.0, 0.0, 1.8]&#39;</li>
+</ul>
+
+<p>*<em>rqt-graph *</em></p>
+
+<ul>
+<li>Reduce complexity of ROS Computation Graph</li>
+<li>Keeps track of all nodes publishing/ subscribing</li>
+<li>Dynamic graph of whats going on in the system</li>
+</ul>
+
+<p>Load RQT GUI:</p>
+
+<ul>
+<li>$ roscore</li>
+<li>$ rosrun turtlesim    turtlesim_node</li>
+<li>$ rosrun turtlesim turtle<em>teleop</em>key</li>
+<li>$ rosrun rqt<em>graph rqt</em>graph</li>
+</ul>
+
+<p><strong>rqt_graph Example</strong></p>
+
+<p>Publishers:</p>
+
+<ul>
+<li>/teleop_turtle Node publishing </li>
+</ul>
+
+<p>Message Type:</p>
+
+<ul>
+<li>geometry_msgs/Twist </li>
+</ul>
+
+<p>Topics publishing/subscribed</p>
+
+<ul>
+<li>over /turtle1/cmd_vel topic</li>
+</ul>
+
+<p>Subscribers</p>
+
+<ul>
+<li>/turtlesim node subscribe to /turtle1/cmd_vel Topic</li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rqt-turtle-cmd_vel.jpg" alt="rostopic type"></p>
+
+<p><strong>More Complex rqt_graph Example</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/complex-graph.jpg" alt="Complex Graph"></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2014/08/06/archive/">
+            Archive
+            <small>06 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2014/08/01/Roslaunch/">
+            Roslaunch
+            <small>01 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2014/08/01/ROS-catkin-packages/">
+            Creating catkin packages
+            <small>01 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>

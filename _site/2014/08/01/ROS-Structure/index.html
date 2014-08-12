@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      ROS Structure &middot; Cpts 483
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Cpts 483
+        </a>
+      </h1>
+      <p class="lead">Intro to Robotics using ROS</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics/archive/v2.1.0.zip">Download</a>
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v2.1.0</span>
+    </nav>
+
+    <p>&copy; 2014. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">ROS Structure</h1>
+  <span class="post-date">01 Aug 2014</span>
+  <p><strong>Nodes</strong></p>
+
+<ul>
+<li>Process which perform specific computation</li>
+</ul>
+
+<p>e.g.:
+- Control robot wheel motors / servos etc.
+- Obtain data from sensor i.e. laser sensor, vision etc.
+- Acquire image and sound i.e. from camera / microphone
+- Perform localization (later topic) / compute path planning
+- Graphical representation of the overall system</p>
+
+<ul>
+<li>Exchange Data via Ros messages</li>
+<li>Can run multiple Nodes via Nodelets</li>
+</ul>
+
+<p><strong>Advantages to Nodelets (multiple Nodes):</strong></p>
+
+<ul>
+<li>Provide a way to run multiple nodes (algorithms) on:</li>
+<li>Single machine</li>
+<li>Single process</li>
+<li>Reduce cost interprocess message passing</li>
+</ul>
+
+<p>Note! Master is the core / main node for ROS, called roscore!</p>
+
+<p><strong>ROS Master (roscore)</strong></p>
+
+<ul>
+<li>Akin to Internet DNS (domain name server)</li>
+<li>Core node of ROS </li>
+<li>Provides name registration and lookup to the rest of the computation computation graph(the visual -  representation of the system)</li>
+<li>Every node registers with Master upon startup / at runtime
+
+<ul>
+<li>Fetch registration information (subscribe or publish to a given topic) </li>
+<li>Establish direct connections as appropriate</li>
+<li>Make callbacks to nodes when registration information changes (i.e. Event handler)</li>
+<li>Allows nodes to dynamically create connections as necessary (i.e. new nodes are run)</li>
+</ul></li>
+</ul>
+
+<p><strong>ROS Parameter Server</strong></p>
+
+<ul>
+<li>Akin to dictionary in c# or python</li>
+<li>Shared</li>
+<li>Accessible via network APIs</li>
+<li>Belongs to ROS Master</li>
+<li>Storage space for parameters</li>
+<li>Accessed by Nodes at runtime</li>
+<li>Not designed for high performance / Better suited for configuration parameters (arguments / data passed to functions)</li>
+<li>Follows ROS naming (namespaces) convention to Avoid conflicts</li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/param-server.jpg" alt="ROS Parameter Server Diagram"></p>
+
+<p><strong>Parameter Server Example:</strong></p>
+
+<p>Commands : list and get</p>
+
+<p>Open a terminal window and run:
+- $ roscore</p>
+
+<p><strong>In a new terminal windows / tab</strong></p>
+
+<ul>
+<li><p>List parameters</p>
+
+<ul>
+<li>$ rosparam list</li>
+</ul></li>
+<li><p>Get distribution /  version </p>
+
+<ul>
+<li>$ rosparam get /rosdistro</li>
+</ul></li>
+</ul>
+
+<p><strong>ROS Messages</strong></p>
+
+<p>Message
+- A data structure which consists of typed fields</p>
+
+<p>Data types Supported:</p>
+
+<ul>
+<li><p>Primitive types:</p>
+
+<ul>
+<li>Int{8, 16, 32, 64} i.e. short uint int long unsigned long </li>
+<li>Float {32, 64}</li>
+<li>String</li>
+<li>Time</li>
+<li>Duration (seconds)</li>
+<li>Array [ ]</li>
+</ul></li>
+<li><p>Nodes communicate by exchanging Messages. </p></li>
+<li><p>Messages are routed via transport system with publish / subscribe semantics</p></li>
+<li><p>Non-blocking when used with topic *.msg (n:n)</p></li>
+<li><p>You can have as many ROS topics publishing and subscribing</p></li>
+<li><p>Blocking when used with service *.serv (1:1 request + respond)</p></li>
+<li><p>Services must only provide and request the same type</p></li>
+</ul>
+
+<p><strong>ROS Messages Commands</strong></p>
+
+<ul>
+<li>$ rosmsg list : lists the current messages</li>
+<li>$ rosmsg show <message name>/Type : Show the contents of message i.e. Message type :</li>
+<li>e.g.
+
+<ul>
+<li>$ rosmsg show geometry_msgs/Vector3</li>
+</ul></li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/msg-show-vector3.jpg" alt="msg show vector3"></p>
+
+<ul>
+<li>$ rosmsg show geometry_msgs/Twist</li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/msg-show-vector3.jpg" alt="msg show vector3"></p>
+
+<p><strong>ROS Topics</strong></p>
+
+<ul>
+<li>Nodes send messages by publishing it to a given ROS Topic</li>
+<li>Topic type must match the message type
+
+<ul>
+<li>Defined by the message type published to it</li>
+</ul></li>
+<li>If a Node needs a certain type of data it must subscribe to the appropriate Topic</li>
+<li>Multiple Nodes can publish and subscribe to the same topic</li>
+<li>A single Node may publish / subscribe to multiple Topics</li>
+<li>Publishers and Subscribers are unaware of each other&#39;s existence WHY?</li>
+<li>Publish / Subscribe model flexible paradigm i.e. many-to-many one way transport</li>
+<li>There is no order of execution</li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/ros-topicdiagram.jpg" alt="ROS topics diagram"></p>
+
+<p><strong>ROS Services</strong></p>
+
+<ul>
+<li>ROS services implement the request / reply functionality</li>
+<li>Pair of message struct : {reply, request}</li>
+<li>Node provider (Server) offer service under specific names</li>
+<li>A client node uses the service by sending the request message and awaits a reply
+
+<ul>
+<li>e.g. Remote procedure call</li>
+</ul></li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/ros-topicdiagram.jpg" alt="ROS Services Diagram"></p>
+
+<ul>
+<li>The Listener Node request service from ROS Master</li>
+<li>Talker Node publishes service to ROS master</li>
+</ul>
+
+<p><strong>ROS Services Commands</strong></p>
+
+<p>To View details of ROS services
+- $ rossrv list : lists all available services 
+- $ rossrv show <Node_name>/<service name or double tab to list all avaialble>
+e.g.</p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/service-cmds.jpg" alt="ROS Services Commands"></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2014/08/06/archive/">
+            Archive
+            <small>06 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2014/08/01/Roslaunch/">
+            Roslaunch
+            <small>01 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2014/08/01/ROS-catkin-packages/">
+            Creating catkin packages
+            <small>01 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>

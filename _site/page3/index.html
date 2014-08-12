@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Cpts 483 &middot; Intro To Robotics
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Cpts 483
+        </a>
+      </h1>
+      <p class="lead">Intro to Robotics using ROS</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics/archive/v2.1.0.zip">Download</a>
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v2.1.0</span>
+    </nav>
+
+    <p>&copy; 2014. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/08/01/ROS-Computation-Graph/">
+        ROS Computation Graph
+      </a>
+    </h1>
+
+    <span class="post-date">01 Aug 2014</span>
+
+    <p><strong>More Graph Concepts</strong></p>
+
+<ul>
+<li>rosout – similar to stdout / stderr (standard output )</li>
+<li>Roscore – Master + rosout + parameter server (rosparam)
+
+<ul>
+<li>ROS Master must be started before any other node. </li>
+</ul></li>
+</ul>
+
+<p><strong>Navigating ROS File System</strong></p>
+
+<ul>
+<li>Filesystem tools
+
+<ul>
+<li>Eliminates need to use standard bash commands such as cd and ls to navigate package directories.</li>
+</ul></li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/service-cmds.jpg" alt="ROS Bash command list"></p>
+
+<p><strong>$ rospack - Command</strong></p>
+
+<ul>
+<li>Get information about packages</li>
+<li>list packages currently available</li>
+<li>find the path of packages</li>
+<li>lists dependencies of packages</li>
+</ul>
+
+<p>and more. . .</p>
+
+<p>e.g. 
+- $ rospack find turtlesim
+- $ /opt/ros/hydro/share/turtlesim</p>
+
+<p><strong>roscd - Command</strong></p>
+
+<p>Usage: roscd [package name[/subdir]]</p>
+
+<ul>
+<li>Change to package directory</li>
+<li>Packages must be within directories listed in ROS PACKAGE PATH</li>
+<li>Executing roscd without specifying a package changes directory to ROS WORKSPACE/devel (if set)</li>
+</ul>
+
+<p><strong>rosls - Command</strong></p>
+
+<p>Usage: rosls [package name[/subdir]]</p>
+
+<ul>
+<li>Allow listing the contents of a package by name rather than by absolute path</li>
+<li>Packages must be within directories listed in ROS PACKAGE PATH</li>
+</ul>
+
+<p>e.g.
+<img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/service-cmds.jpg" alt="rosls command"></p>
+
+<p><strong>Understanding ROS Nodes</strong></p>
+
+<p><strong>$ rosnode</strong></p>
+
+<ul>
+<li>A command line tool for printing information about ROS Nodes currently running</li>
+</ul>
+
+<p>$ rosnode list</p>
+
+<ul>
+<li>Lists the active Nodes</li>
+</ul>
+
+<p>$ rosnode info /<node name></p>
+
+<p>e.g. 
+$ roscore
+$ rosnode list - will display a node /rosout
+$ rosnode info /rosout - Prints information about node /rosout</p>
+
+<p><strong>Executing a ROS Node</strong></p>
+
+<ul>
+<li><p>$ rosrun</p>
+
+<ul>
+<li>Allows the use of package name to directly run a node (executable program) within the package</li>
+</ul></li>
+<li><p>Usage : rosrun [package<em>name] [node</em>name]
+e.g. </p></li>
+<li><p>$ rosrun turtlesim turtlesim_node</p></li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosrun.jpg" alt="rosrun command"></p>
+
+<p><strong>Understanding rosnode</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosnode.jpg" alt="rosnode command"></p>
+
+<p><strong>Understanding Topics</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rostopic-bash.jpg" alt="rostopic command"></p>
+
+<p><strong>Understanding rosmsg</strong>
+<img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosmsg.jpg" alt="rosmsg command"></p>
+
+<p><strong>Understanding rossrv</strong>
+<img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosserv.jpg" alt="rosserv command"></p>
+
+<p><strong>Calling ROS services</strong></p>
+
+<ul>
+<li>With service currently active 
+
+<ul>
+<li>Use $ rosservice list : to view active services</li>
+<li>Use $ rosservice call to call a service</li>
+</ul></li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosservice-call.jpg" alt="rosservice command"></p>
+
+<p>*<em>e.g. *</em></p>
+
+<ul>
+<li>$ rosservice call /spawn 1.0 2.0 0.0 turtle2</li>
+<li>Now try to spawn a turtle in a different location.</li>
+<li>Experiment will all the rosservice calls</li>
+</ul>
+
+<p><strong>ROS parameters</strong></p>
+
+<p>ROS parameter server:</p>
+
+<ul>
+<li>Shared Multi-variate dictionary</li>
+<li><p>Accessible via network APIs</p>
+
+<ul>
+<li>Nodes use parameter server to store and retrieve parameters at run time</li>
+<li>Not designed for high performance</li>
+<li>Globally view / runs inside ROS Master via XMLRPC</li>
+</ul></li>
+</ul>
+
+<p><strong>rosparam</strong></p>
+
+<p>A command line tool for getting, setting and deleting parameters from ROS parameter server</p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosparam.jpg" alt="rosparam command"></p>
+
+<ul>
+<li><strong>Using rosparm</strong>
+
+<ul>
+<li>rosparam list: list parameters currently stored</li>
+<li>rosparam get [param name]: get parameter value</li>
+<li>rosparam set [param name]: set parameter value</li>
+</ul></li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosparam-list.jpg" alt="rosparam list command"></p>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <span class="pagination-item older">Older</span>
+  
+  
+    
+      <a class="pagination-item newer" href="/page2">Newer</a>
+    
+  
+</div>
+    </div>
+
+  </body>
+</html>

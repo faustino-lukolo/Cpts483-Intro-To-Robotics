@@ -1,0 +1,26 @@
+# Dependencies
+markdown:         redcarpet
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Cpts 483
+tagline:          'Intro To Robotics'
+description:      'Intro to Robotics using ROS'
+url:              http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics
+baseurl:          /
+
+author:
+  name:           'Faustino Lukolo'
+  url:            
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics
+

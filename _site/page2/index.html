@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Cpts 483 &middot; Intro To Robotics
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Cpts 483
+        </a>
+      </h1>
+      <p class="lead">Intro to Robotics using ROS</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics/archive/v2.1.0.zip">Download</a>
+      <a class="sidebar-nav-item" href="https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v2.1.0</span>
+    </nav>
+
+    <p>&copy; 2014. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/08/01/ROS-Packages/">
+        ROS Packages
+      </a>
+    </h1>
+
+    <span class="post-date">01 Aug 2014</span>
+
+    <p><strong>ROS Packages</strong></p>
+
+<ul>
+<li>ROS packages must contain</li>
+<li>CMakeList.txt file</li>
+<li>package.xml</li>
+</ul>
+
+<p>There can be no more than 1 package per folder</p>
+
+<p><strong>Folder structure of a catkin_ws</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/catkin-folder-structure.jpg" alt="rostopic type"></p>
+
+<p><strong>dana_sim package</strong></p>
+
+<ul>
+<li><p>Create a package called dana_sim</p>
+
+<ul>
+<li>$ roscreate<em>pkg dana</em>sim roscpp rospy std_msgs</li>
+</ul></li>
+<li><p>First order dependency check</p>
+
+<ul>
+<li>$ rospack depends1 dana_sim</li>
+</ul></li>
+<li><p>Show all dependencies</p>
+
+<ul>
+<li>$ rospack depends dana_sim</li>
+</ul></li>
+</ul>
+
+<p><strong>Configuring catkin packages</strong></p>
+
+<ul>
+<li>You can edit package.xml to change the following information:</li>
+</ul>
+
+<p>![rostopic type](http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/config-packages.jpg</p>
+
+<p>CMakeList.txt</p>
+
+<ul>
+<li>CMake build system input for building software packages</li>
+<li>How to build and where to place binaries (code)</li>
+</ul>
+
+<p><strong>CMakeList.txt structure and Ordering</strong></p>
+
+<p>![rostopic type](http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/cmakelist.jpg </p>
+
+<p><strong>CMakeList.txt Break Down</strong></p>
+
+<ul>
+<li>CMake version</li>
+<li>Catkin requires version 2.8.3 or higher</li>
+</ul>
+
+<p>Package Name</p>
+
+<ul>
+<li>Name of package</li>
+<li>Must match name in package.xml</li>
+<li>Also name of package director </li>
+</ul>
+
+<p>find_package() </p>
+
+<ul>
+<li>specifies other CMake packages needed to build package</li>
+<li>At least one dependency on catkin</li>
+</ul>
+
+<p>e.g.</p>
+
+<ul>
+<li>find_package(catkin REQUIRED)</li>
+<li>Other wet (catkin) packages are also components 
+
+<ul>
+<li>find_package(catkin REQUIRED COMPONENTS rocpp rospy)</li>
+</ul></li>
+<li>Boost, OpenCV and PCL are not catkin components
+
+<ul>
+<li>find_package(Boost REQUIRED COMPONENTS signals thread)</li>
+</ul></li>
+</ul>
+
+<p><strong>Customizing CMakeList</strong></p>
+
+<p>catkin_package()</p>
+
+<ul>
+<li>CMake macro</li>
+<li>Required to specify catkin-specific info to the build system</li>
+<li>Generates pkg-config and CMake files</li>
+<li>Called before declaring targets</li>
+</ul>
+
+<p><strong>Args:</strong></p>
+
+<ul>
+<li>INCLUDE_DIRS: export include paths</li>
+<li>LIBRARIES: export libraries</li>
+<li>CATKIN_DEPENDS: other catkin packages</li>
+<li>DEPENDS: non-catkin CMake (system) dependencies</li>
+<li>CFG_EXTRAS: additional configurations options</li>
+</ul>
+
+<p>Include paths</p>
+
+<ul>
+<li>Include<em>directories(include ${Boost</em>INCLUDE<em>DIRS} ${catkin</em>INCLUDE_DIRS})</li>
+<li>Shared library targets</li>
+<li>add_library (dana src/dana.cpp)</li>
+<li>Execitable targets
+
+<ul>
+<li>add<em>executable( dana</em>node src/main.cpp src/some_functions.cpp)</li>
+</ul></li>
+<li>target<em>link</em>libraries
+
+<ul>
+<li>target<em>link</em>libraries(dana ${catkin_LIBRARIES})</li>
+<li>target<em>link</em>libraries(dana<em>node dummy ${Boost</em>LIBRARIES})</li>
+</ul></li>
+</ul>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/08/01/ROS-Introduction/">
+        ROS Introduction
+      </a>
+    </h1>
+
+    <span class="post-date">01 Aug 2014</span>
+
+    <p>What is ROS:</p>
+
+<p>Ros is an open-source meta operating system
+Current stable distributions of ROS: Hydro Medusa</p>
+
+<p>Key Features:</p>
+
+<ul>
+<li>Hardware abstraction and low level control</li>
+<li>Message passing between process</li>
+<li>OS independent: </li>
+<li>Ubuntu Linux (Native support)</li>
+<li>Windows, Mac OSX (Experimental)</li>
+<li>Programming language independence
+
+<ul>
+<li>C++</li>
+<li>Python 2 (Hydro) &amp; Python 3 (Indigo)</li>
+</ul></li>
+<li><p>Implementation of wide range of commonly used algorithm</p></li>
+<li><p>Standardized package management</p></li>
+<li><p>Catkin (Standard recommended)</p></li>
+<li><p>Rosbuild (retired / Not used in hydro or indigo)</p></li>
+<li><p>Useful set of shell commends and utililities</p></li>
+<li><p>Tab Completition!!!</p></li>
+</ul>
+
+<p>Distribution:</p>
+
+<p>ROS is structured as a peer-to-peer network of processes called Nodes Loosely coupled at runtime and
+can share messages at runtime using:</p>
+
+<ul>
+<li>Synchronous RPC communication </li>
+<li>ROS Services</li>
+<li>Asynchronous data streaming communication</li>
+<li>ROS Topics</li>
+<li>Store Data </li>
+<li>ROS parameter server</li>
+</ul>
+
+<p>Libraries Support:</p>
+
+<ul>
+<li><p>Main supported Client Libraries</p>
+
+<ul>
+<li>Python 2 &amp; 3</li>
+<li>C++</li>
+<li>Lisp</li>
+</ul></li>
+<li><p>Experimental</p>
+
+<ul>
+<li>Java (Supports android)</li>
+<li>Lua</li>
+<li>R</li>
+</ul></li>
+</ul>
+
+<p>Sensors IO:</p>
+
+<ul>
+<li>1D / 2D / and 3D range finders
+
+<ul>
+<li>e.g. Microsoft Kinect</li>
+</ul></li>
+<li>Cameras</li>
+<li>Mono and Stereo</li>
+<li>USB and Firewire</li>
+<li>Streaming video (gstreamer)</li>
+<li>Force / Torque / and Touch </li>
+<li>Motion Capture</li>
+<li>Pose estimation (gps and IMU)</li>
+<li>Audio and speech recognition</li>
+<li>RFID</li>
+<li>Sensor and Actuator interface
+
+<ul>
+<li>e.g.  Arduino, Lego NXT</li>
+</ul></li>
+<li>And more</li>
+</ul>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/08/01/ROS-GUI/">
+        ROS GUI Toolkit
+      </a>
+    </h1>
+
+    <span class="post-date">01 Aug 2014</span>
+
+    <p><strong>ROS Gui toolkit</strong></p>
+
+<ul>
+<li><strong>rqt</strong>
+
+<ul>
+<li>QT based framework for ROS</li>
+<li>Dock multiple widgets on a single window</li>
+<li>Various GUI tools implemented as plugins:</li>
+<li>Node graph (Introspection detailed view of nodes)</li>
+<li>Logging (ROS bags, Console)</li>
+<li>Services</li>
+<li>Topics</li>
+<li>Visualization (e.g. Plot)</li>
+</ul></li>
+</ul>
+
+<p><strong>ROS Gui</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/ros-gui.jpg" alt="ros gui"></p>
+
+<p><strong>Plotting published Data</strong></p>
+
+<ul>
+<li>rqt-graph
+
+<ul>
+<li>Displays scrolling time plot of data published  to topics</li>
+<li>Command : $ rosrun rqt-plot rqt-plot
+e.g. Plot turtle1 pose</li>
+</ul></li>
+</ul>
+
+<p>$ roscore : if not running
+$ rosrun turtlesim turtlesim_node
+$ rostopic list : List the topics running 
+$ rostopic type /turtle1/pose | rosmsg show
+- Displays the data type of published messages on /turtle1/pose topic</p>
+
+<p><strong>List Message types publish on /turtle1/pose topic</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rostopic-type.jpg" alt="rostopic type"></p>
+
+<ul>
+<li>$ rosrun rqt<em>plot rqt</em>plot [topic]/[attribute]/[fields]</li>
+</ul>
+
+<p>e.g. </p>
+
+<ul>
+<li>$ rosrun rqt<em>plot rqt</em>plot /turtle1/cmd_vel/linear/x</li>
+</ul>
+
+<p><strong>Plot /turtle1/pose published messages:</strong> </p>
+
+<ul>
+<li>rosrun rqt<em>plot rqt</em>plot /turtle1/pose/x /turtle1/pose/y /turtle1/pose/z</li>
+</ul>
+
+<p><strong>Plotting /turtle1/cmd_vel Linear x, y, z and angular z</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rqt-cmd_vel.jpg" alt="rostopic type"></p>
+
+<p>As you can see the graph is a very accurate representation of the data published to cmd_vel topic using the command:</p>
+
+<ul>
+<li>$ rostopic pub -r 10 /turtle1/cmd<em>vel geometry</em>msgs/Twist &#39;[2.0, 0.0, 0.0]&#39; &#39;[0.0, 0.0, 1.8]&#39;</li>
+</ul>
+
+<p>*<em>rqt-graph *</em></p>
+
+<ul>
+<li>Reduce complexity of ROS Computation Graph</li>
+<li>Keeps track of all nodes publishing/ subscribing</li>
+<li>Dynamic graph of whats going on in the system</li>
+</ul>
+
+<p>Load RQT GUI:</p>
+
+<ul>
+<li>$ roscore</li>
+<li>$ rosrun turtlesim    turtlesim_node</li>
+<li>$ rosrun turtlesim turtle<em>teleop</em>key</li>
+<li>$ rosrun rqt<em>graph rqt</em>graph</li>
+</ul>
+
+<p><strong>rqt_graph Example</strong></p>
+
+<p>Publishers:</p>
+
+<ul>
+<li>/teleop_turtle Node publishing </li>
+</ul>
+
+<p>Message Type:</p>
+
+<ul>
+<li>geometry_msgs/Twist </li>
+</ul>
+
+<p>Topics publishing/subscribed</p>
+
+<ul>
+<li>over /turtle1/cmd_vel topic</li>
+</ul>
+
+<p>Subscribers</p>
+
+<ul>
+<li>/turtlesim node subscribe to /turtle1/cmd_vel Topic</li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rqt-turtle-cmd_vel.jpg" alt="rostopic type"></p>
+
+<p><strong>More Complex rqt_graph Example</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/complex-graph.jpg" alt="Complex Graph"></p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/08/01/ROS-Filesystem/">
+        ROS Filesystem
+      </a>
+    </h1>
+
+    <span class="post-date">01 Aug 2014</span>
+
+    <p><strong>ROS Packages</strong></p>
+
+<ul>
+<li>Lowest level of ROS software organization</li>
+<li>Single functionality 
+
+<ul>
+<li>(e.g. acquisition and publication of laser data messages)</li>
+</ul></li>
+<li>Only one package per folder per workspace</li>
+</ul>
+
+<p>Types of packages:</p>
+
+<ul>
+<li>Rosbuild packages (also known as dry packages)</li>
+<li>Catkin Packages (recommended aka wet packages)</li>
+</ul>
+
+<p><strong>Rosbuild Packages (dry! deprecated)</strong></p>
+
+<p>Maifest.xml:</p>
+
+<ul>
+<li>Information about the package
+
+<ul>
+<li>e.g. Author, License etc.</li>
+</ul></li>
+<li>Defines the dependencies on other packages</li>
+</ul>
+
+<p>Makefile:</p>
+
+<ul>
+<li>Make build specifications</li>
+</ul>
+
+<p>CMakeLists.txt:</p>
+
+<ul>
+<li>CMake build specifications</li>
+</ul>
+
+<p>Catkin Packages (wet):</p>
+
+<p>Package.xml:</p>
+
+<ul>
+<li>Information about the package
+
+<ul>
+<li>e.g. Author, License etc.</li>
+</ul></li>
+</ul>
+
+<p>CMakeLists.txt:</p>
+
+<ul>
+<li>Contains CMake build specifications </li>
+<li>Uses catkin macros</li>
+</ul>
+
+<p>Note!!! Catkin packages cannot depend on Rosbuild packages</p>
+
+<p><strong>Stacks – rosbuild (deprecated!):</strong></p>
+
+<ul>
+<li>Group packages to provide a more abstract functionality</li>
+<li>Packages within stack folder are consider part of the stack</li>
+</ul>
+
+<p>Stack.xml:</p>
+
+<ul>
+<li>Metadata and declared dependencies on other stacks</li>
+</ul>
+
+<p><strong>Metapackages – catkin (recommended):</strong></p>
+
+<ul>
+<li>Grouping packages as a single logical package</li>
+</ul>
+
+<p>package.xml:</p>
+
+<ul>
+<li>Includes meta data</li>
+<li>Can only have dependencies on packages grouped by the metapackage</li>
+<li>Packages which are not in the metapackage can not depend on the meta package </li>
+</ul>
+
+<p><strong>A typical catkin package:</strong></p>
+
+<p>my_pkg/</p>
+
+<ul>
+<li>CmakeLists.txt: CMake build settings for my_pkg</li>
+<li>manifest.xml:   Metadata and dependencies required by my_pkg/</li>
+<li>mainpage.dox:   Doxygen info of package my_pkg</li>
+<li>Include/my_pkg: C++ header files</li>
+<li>Src/:           source code directory</li>
+</ul>
+
+<p><strong>ROS Commandline Tools:</strong></p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/rosbash.jpg" alt="stage simulator"></p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/08/01/ROS-Environment-Setup/">
+        ROS Environment Setup
+      </a>
+    </h1>
+
+    <span class="post-date">01 Aug 2014</span>
+
+    <p><strong>Environment Setup:</strong></p>
+
+<ul>
+<li>Create a new directory e.g. mkdir workspacename/src</li>
+<li>Navigate to /src directory of your workspace</li>
+<li>/src is the directory for all your packages i.e. ROS Package Path</li>
+<li>Create a link to point to /src directory i.e. catkin<em>init</em>workspace</li>
+<li>Finally build the workspaces</li>
+</ul>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/environment-setup.jpg" alt="stage simulator"></p>
+
+<p>Note! 
+This is only done once per workspace. You can have multiple workspace but can only source 
+One workspace at a time. </p>
+
+<p><strong>Source devel/setup.bash:</strong></p>
+
+<p>Once you have build your catkin space you can begin using this workspace. First Source your devel folder this allows the terminal to point to your ROS directory when running roscd.</p>
+
+<p><img src="http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/assets/images/ws-setup.jpg" alt="stage simulator"></p>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page3">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/">Newer</a>
+    
+  
+</div>
+    </div>
+
+  </body>
+</html>

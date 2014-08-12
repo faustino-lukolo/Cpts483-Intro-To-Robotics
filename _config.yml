@@ -10,7 +10,7 @@ title:            Cpts 483
 tagline:          'Intro To Robotics'
 description:      'Intro to Robotics using ROS'
 url:              http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics
-baseurl:          http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/
+baseurl:          http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics
 
 author:
   name:           'Faustino Lukolo'

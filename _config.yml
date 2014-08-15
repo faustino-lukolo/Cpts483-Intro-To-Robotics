@@ -3,7 +3,7 @@ markdown:       redcarpet
 encoding:       UTF-8
 highlighter:    pygments
 paginate_path:  "blog/page:num"
-paginate:       5
+paginate:       8
 
 # Permalinks
 permalink:     /:categories/:year/:title.html
@@ -17,12 +17,7 @@ title:            Cpts 483
 tagline:          'Intro To Robotics'
 description:      'Intro to Robotics using ROS'
 url:              http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics
-baseurl:          http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics
-
-
-
-# Custom
-version:          2.1.0
+baseurl:          http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/
 
 github:
   repo: http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/

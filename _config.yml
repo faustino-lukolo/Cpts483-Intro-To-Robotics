@@ -1,12 +1,12 @@
 # Dependencies
-markdown: redcarpet
-encoding: UTF-8
-highlighter: pygments
-paginate_path: "blog/page:num"
-paginate:         8
+markdown:       redcarpet
+encoding:       UTF-8
+highlighter:    pygments
+paginate_path:  "blog/page:num"
+paginate:       8
 
 # Permalinks
-permalink:        /:categories/:year/:title.html
+permalink:     /:categories/:year/:title.html
 safe: true
 lsi: false
 
@@ -17,7 +17,7 @@ title:            Cpts 483
 tagline:          'Intro To Robotics'
 description:      'Intro to Robotics using ROS'
 url:              http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics
-baseurl:          http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/
+baseurl:          ""
 
 
 
@@ -25,6 +25,6 @@ baseurl:          http://faustino-lukolo.github.io/Cpts483-Intro-To-Robotics/
 version:          2.1.0
 
 github:
-  repo:           https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics
-  user:			  Faustino-lukolo
-  project:		  Cpts483-Intro-To-Robotics
+  repo: https://github.eecs.wsu.edu/flukolo/Cpts483-Intro-To-Robotics
+  user:	Faustino-lukolo
+  project: Cpts483-Intro-To-Robotics
